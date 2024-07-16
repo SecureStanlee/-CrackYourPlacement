@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        int ans=0;
+     if( haystack.length()<needle.length())
+       return -1;
+       bool flag=false;
+    for(int i=0;i<haystack.length();i++)
+    {
+        flag=fun(haystack,i,i+needle.length()-1,needle);
+        if(flag)
+        { ans=i;
+        break;
+        }
+    }
+    if(flag)
+    return ans;
+    return -1;
+    }
+    bool fun(string g,int st,int en,string nd)
+    {
+      int n=en-st+1;
+      for(int i=0;i<n;i++)
+      {
+        if(g[st+i]!=nd[i])
+         return false;
+      }
+      return true;
+    }
+};
